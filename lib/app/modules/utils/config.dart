@@ -8,4 +8,8 @@ class AppConfig {
   static const String orEnText = 'Or';
   static const String facebookText = 'Continue with Facebook';
   static const String googleText =  'Continue with Google';
+
+  // RADIUS
+  static  double defaultPadding = 16.0;
+  static  double defaultBorderRadius = 12.0;
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../components/custom_textfield.dart';
+import '../../home/view/home_view.dart';
 
 class VerificationView extends StatefulWidget {
   const VerificationView({super.key});
@@ -12,9 +15,6 @@ class VerificationView extends StatefulWidget {
 
 class _VerificationViewState extends State<VerificationView> {
   TextEditingController numberController = TextEditingController();
-
-  // Color fabColor = Colors.grey; // Default FAB color
-  // Color fabIconColor = Colors.black; // Default FAB icon color
   bool isFocused = false;
 
   @override
@@ -57,10 +57,9 @@ class _VerificationViewState extends State<VerificationView> {
               controller: numberController,
               onChanged: (value) {
                 setState(() {
-                    isFocused = value.isNotEmpty;
+                  isFocused = value.isNotEmpty;
                 });
               },
-
             ),
             const SizedBox(
               height: 5,
@@ -82,17 +81,21 @@ class _VerificationViewState extends State<VerificationView> {
           borderRadius: BorderRadius.circular(100),
         ),
         onPressed: () {
-          // Get.to(()=> );
+          if (numberController.text.length == 11) {
+            Get.offAll(() => HomeView());
+            numberController.clear();
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              content: Text("Phone number will be 11 character length!"),
+            ));
+          }
         },
-        child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.keyboard_arrow_right_outlined,
-              color: numberController.text.length == 11
-                  ? Colors.white
-                  : Colors.black,
-              size: 28,
-            )),
+        child: Icon(
+          Icons.keyboard_arrow_right_outlined,
+          color:
+              numberController.text.length == 11 ? Colors.white : Colors.black,
+          size: 28,
+        ),
       ),
     );
   }

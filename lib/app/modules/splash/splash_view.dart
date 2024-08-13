@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../authentication/login/login_view.dart';
 import '../utils/config.dart';
 
@@ -15,6 +13,7 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  // var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   void initState() {
     super.initState();

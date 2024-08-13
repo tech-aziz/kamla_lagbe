@@ -48,6 +48,13 @@ dependencies:
   lottie: ^3.0.0
   # updating the Flutter app's launcher icon
   flutter_launcher_icons: ^0.13.1
+  carousel_slider:
+  # enables connection app to the firebase or communicate to he firebase services.
+  firebase_core: ^3.1.1
+  # automatically resizes text
+  auto_size_text: ^3.0.0
+  # Easily create toast messages in single line of code
+  fluttertoast: ^8.2.4
 
 
 dev_dependencies:
