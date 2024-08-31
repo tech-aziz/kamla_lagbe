@@ -19,9 +19,10 @@ PreferredSizeWidget customAppBar(
     title: Text(
       title,
       style: textStyle(
-        textColor: Colors.white,
-        fontFamily: 'TiroBangla-Italic',
-        fontWeight: FontWeight.normal,
+        textStyle: TextStyle(
+            fontWeight: FontWeight.normal,
+            color: Colors.white,
+            fontFamily: 'TiroBangla-Italic'),
       ),
     ),
     centerTitle: false,

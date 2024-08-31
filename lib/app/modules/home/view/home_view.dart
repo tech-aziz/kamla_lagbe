@@ -2,7 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../../getx_practice/view/increment_view.dart';
 import '../../../res/style/color.dart';
+import '../../../res/style/text_style.dart';
 import '../../components/custom_text_widget.dart';
 import '../../utils/config.dart';
 
@@ -56,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
                             data: 'Kamla Lagbe',
                             fontSize: 16,
                             color: Colors.white,
-                            textAlign: TextAlign.center)),
+                            textAlign: TextAlign.center,fontWeight: FontWeight.normal)),
                   ),
                   accountEmail: displayMedium(
                       data: "azizulhakim.career@gmail.com",
@@ -81,7 +84,7 @@ class _HomeViewState extends State<HomeView> {
                     Get.back();
                   },
                   title: displayMedium(
-                      data: 'হোম',
+                      data: 'Home',
                       fontSize: 14,
                       color: Colors.black,
                       textAlign: TextAlign.start),
@@ -106,7 +109,7 @@ class _HomeViewState extends State<HomeView> {
                     // ));
                   },
                   title: displayMedium(
-                      data: 'অ্যাপ সম্পর্কে',
+                      data: 'About App',
                       fontSize: 14,
                       color: Colors.black,
                       textAlign: TextAlign.start),
@@ -130,7 +133,7 @@ class _HomeViewState extends State<HomeView> {
                     // )
                   },
                   title: displayMedium(
-                      data: 'প্রাইভেসি পলিসি',
+                      data: 'Privacy Policy',
                       fontSize: 14,
                       color: Colors.black,
                       textAlign: TextAlign.start),
@@ -148,7 +151,7 @@ class _HomeViewState extends State<HomeView> {
                     // ));
                   },
                   title: displayMedium(
-                      data: 'মতামত',
+                      data: 'Feedback',
                       fontSize: 14,
                       color: Colors.black,
                       textAlign: TextAlign.start),
@@ -174,7 +177,7 @@ class _HomeViewState extends State<HomeView> {
                     // shareApp(appLink: 'https://play.google.com/store/apps/details?id=com.smartsoftware.snakebite');
                   },
                   title: displayMedium(
-                      data: 'রেটিং দিন',
+                      data: 'Rating',
                       fontSize: 14,
                       color: Colors.black,
                       textAlign: TextAlign.start),
@@ -190,7 +193,7 @@ class _HomeViewState extends State<HomeView> {
                     // showAlertDialog(context)
                   },
                   title: displayMedium(
-                      data: 'লগ আউট',
+                      data: 'Log out',
                       fontSize: 14,
                       color: Colors.black,
                       textAlign: TextAlign.start),
@@ -208,7 +211,7 @@ class _HomeViewState extends State<HomeView> {
                     Get.back();
                   },
                   title: displayMedium(
-                      data: 'ডিলিট অ্যাকাউন্ট',
+                      data: 'Delete account',
                       fontSize: 14,
                       color: Colors.black,
                       textAlign: TextAlign.start),
@@ -227,7 +230,7 @@ class _HomeViewState extends State<HomeView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       displayMedium(
-                          data: 'অ্যাপ ভার্সন ১.০',
+                          data: 'Version 1.0',
                           fontSize: 14,
                           color: Colors.black,
                           textAlign: TextAlign.start)
@@ -243,7 +246,10 @@ class _HomeViewState extends State<HomeView> {
           backgroundColor: Colors.green,
           title: Text(
             'Kamla Lagbe',
-            style: TextStyle(color: Colors.white),
+            style: GoogleFonts.tiroBangla(
+                color: Colors.white,
+                fontWeight: FontWeight.normal,
+                fontStyle: FontStyle.normal),
           ),
           centerTitle: true,
           elevation: 0,
@@ -290,13 +296,12 @@ class _HomeViewState extends State<HomeView> {
             SizedBox(
               height: 20,
             ),
-            Text(
-              'What services do you need?',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17,
-                  color: Colors.black.withOpacity(0.8)),
-            ),
+            Text('What services do you need?',
+                style: GoogleFonts.tiroBangla(
+                    color: Colors.black.withOpacity(0.8),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                    fontStyle: FontStyle.normal)),
             SizedBox(
               height: 20,
             ),
@@ -304,27 +309,29 @@ class _HomeViewState extends State<HomeView> {
             Row(
               children: [
                 Expanded(
-                  child: Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.green),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/icons/farmer.png'),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Paddy Worker',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
-                        )
-                      ],
+                  child: InkWell(
+                    onTap: () => Get.to(()=> IncrementView()),
+                    child: Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.green),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/icons/farmer.png'),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text('Paddy Worker',
+                              style: GoogleFonts.tiroBangla(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  fontStyle: FontStyle.normal))
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -348,13 +355,12 @@ class _HomeViewState extends State<HomeView> {
                         SizedBox(
                           height: 5,
                         ),
-                        Text(
-                          'Electric Boy',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
-                        )
+                        Text('Electric Boy',
+                            style: GoogleFonts.tiroBangla(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                fontStyle: FontStyle.normal))
                       ],
                     ),
                   ),
@@ -381,10 +387,11 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         Text(
                           'Cleaner',
-                          style: TextStyle(
+                          style: GoogleFonts.tiroBangla(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                              fontSize: 16,
+                              fontStyle: FontStyle.normal),
                         )
                       ],
                     ),
@@ -412,20 +419,18 @@ class _HomeViewState extends State<HomeView> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'You dont have any ongoing order',
-                            style: TextStyle(
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                          ),
-                          Text(
-                            'Need a service today?',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                          ),
+                          Text('You don\'t have any ongoing order',
+                              style: textStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                  fontStyle: FontStyle.normal)),
+                          Text('Need a service today?',
+                              style: textStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                  fontStyle: FontStyle.normal)),
                           Container(
                             width: 110,
                             alignment: Alignment.center,
@@ -434,13 +439,13 @@ class _HomeViewState extends State<HomeView> {
                                 borderRadius: BorderRadius.circular(100),
                                 color: Colors.green),
                             child: Center(
-                              child: Text(
-                                'Order now',
-                                style: TextStyle(
-                                  
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                              child: Text('Order now',
+                                  style: textStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FontStyle.normal,
+                                      textStyle: TextStyle(
+                                          fontFamily: 'TiroBangla-Italic'))),
                             ),
                           )
                         ],
@@ -457,37 +462,6 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
             )
-
-            //
-            // Expanded(
-            //     child: ListView.builder(
-            //   itemCount: serviceCategoryList.length,
-            //   shrinkWrap: true,
-            //   primary: false,
-            //   scrollDirection: Axis.horizontal,
-            //   itemBuilder: (context, index) {
-            //     final data = serviceCategoryList[index];
-            //     return Container(
-            //       height: 100,
-            //       width: 130,
-            //       decoration: BoxDecoration(
-            //           borderRadius: BorderRadius.circular(12),
-            //           color: Colors.green),
-            //       child: Center(
-            //         child: Column(
-            //           children: [
-            //             Image.asset(data.img.toString()),
-            //             Text(
-            //               data.title,
-            //               style: TextStyle(
-            //                   color: Colors.white, fontWeight: FontWeight.bold),
-            //             )
-            //           ],
-            //         ),
-            //       ),
-            //     );
-            //   },
-            // ))
           ],
         ),
       ),
@@ -497,7 +471,11 @@ class _HomeViewState extends State<HomeView> {
           // unselectedFontSize: 0,
           // showSelectedLabels: false,
           // showUnselectedLabels: false,
-          selectedLabelStyle: TextStyle(color: AppColors.primaryColor),
+          selectedLabelStyle: textStyle(
+              color: AppColors.primaryColor,
+              fontWeight: FontWeight.normal,
+              fontStyle: FontStyle.normal,
+              textStyle: TextStyle(fontFamily: 'TiroBangla-Italic')),
           unselectedLabelStyle: TextStyle(color: Colors.grey),
           elevation: 0,
           selectedItemColor: Colors.green,
@@ -513,9 +491,10 @@ class _HomeViewState extends State<HomeView> {
           },
           items: [
             BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/icons/home.svg',
-                    height: 22, color: Colors.green),
-                label: 'Home'),
+              icon: SvgPicture.asset('assets/icons/home.svg',
+                  height: 22, color: Colors.green),
+              label: 'Home',
+            ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/icons/order.svg',
@@ -523,7 +502,7 @@ class _HomeViewState extends State<HomeView> {
                 // ignore: deprecated_member_use
                 color: Colors.green,
               ),
-              label: 'Orders',
+              label: 'Active Orders',
             ),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
