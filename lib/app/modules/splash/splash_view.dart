@@ -13,13 +13,14 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  // var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 2), () {
       Get.off(
         () => const LoginView(),
+          duration: const Duration(milliseconds: 280),
+          transition: Transition.fadeIn
       );
     });
   }
@@ -33,7 +34,7 @@ class _SplashViewState extends State<SplashView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/farmer.jpg',
+              'assets/images/logo.jpg',
               height: 35,
               width: 35,
               // color: Colors.green,

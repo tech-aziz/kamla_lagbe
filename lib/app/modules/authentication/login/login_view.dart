@@ -21,13 +21,14 @@ class _LoginViewState extends State<LoginView> {
       child: Scaffold(
         body: Column(
           children: [
+            // top section start
             Expanded(
                 flex: 1,
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
                     Image.asset(
-                      'assets/images/farmer1.jpg',
+                      'assets/images/farmer.jpg',
                       fit: BoxFit.cover,
                     ),
                     Positioned(
@@ -35,8 +36,10 @@ class _LoginViewState extends State<LoginView> {
                         top: 15,
                         child: Container(
                           decoration: BoxDecoration(
-                              borderRadius:  BorderRadius.circular(8),
-                            color: isBanglaSelected ? Colors.grey : Colors.green,),
+                            borderRadius: BorderRadius.circular(8),
+                            color:
+                                isBanglaSelected ? Colors.grey : Colors.green,
+                          ),
                           child: Row(
                             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -51,7 +54,9 @@ class _LoginViewState extends State<LoginView> {
                                       horizontal: 18, vertical: 10),
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
-                                      color: isBanglaSelected ? Colors.green : Colors.grey,
+                                      color: isBanglaSelected
+                                          ? Colors.green
+                                          : Colors.grey,
                                       borderRadius: BorderRadius.circular(8)),
                                   child: Text(
                                     AppConfig.banglaLan,
@@ -73,7 +78,9 @@ class _LoginViewState extends State<LoginView> {
                                       horizontal: 18, vertical: 10),
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
-                                      color: isBanglaSelected ? Colors.grey : Colors.green,
+                                      color: isBanglaSelected
+                                          ? Colors.grey
+                                          : Colors.green,
                                       borderRadius: BorderRadius.circular(8)),
                                   child: Text(
                                     textAlign: TextAlign.center,
@@ -90,6 +97,9 @@ class _LoginViewState extends State<LoginView> {
                         ))
                   ],
                 )),
+            // top section start
+
+            // bottom section start
             Expanded(
                 flex: 1,
                 child: Column(
@@ -102,7 +112,9 @@ class _LoginViewState extends State<LoginView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            isBanglaSelected ? AppConfig.bnPhoneNumberText : AppConfig.enPhoneNumberText,
+                            isBanglaSelected
+                                ? AppConfig.bnPhoneNumberText
+                                : AppConfig.enPhoneNumberText,
                             style: GoogleFonts.tiroBangla(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
@@ -140,7 +152,9 @@ class _LoginViewState extends State<LoginView> {
                               ),
                             ),
                             Text(
-                              isBanglaSelected ? AppConfig.orBnText : AppConfig.orEnText,
+                              isBanglaSelected
+                                  ? AppConfig.orBnText
+                                  : AppConfig.orEnText,
                               style: GoogleFonts.tiroBangla(
                                   fontSize: 15, color: Colors.black54),
                             ),
@@ -157,8 +171,13 @@ class _LoginViewState extends State<LoginView> {
                           padding: const EdgeInsets.all(12.0),
                           child: Column(
                             children: [
+
+
+                              //facebook button start
                               customButton(
-                                onTap: () {},
+                                onTap: () {
+                                  // go to facebook login page
+                                },
                                 buttonText: AppConfig.facebookText,
                                 backgroundColor: Colors.green,
                                 alignment: Alignment.center,
@@ -166,16 +185,27 @@ class _LoginViewState extends State<LoginView> {
                                 isBorder: false,
                                 icon: 'assets/icons/facebook.png',
                               ),
+                              //facebook button end
+
+
                               const SizedBox(
                                 height: 10,
                               ),
+
+
+                              //google button start
                               customButton(
-                                  onTap: () {},
+                                  onTap: () {
+                                    // go to google login page
+                                  },
                                   buttonText: AppConfig.googleText,
                                   backgroundColor: Colors.white,
                                   alignment: Alignment.center,
                                   isBorder: true,
                                   icon: 'assets/icons/google.png'),
+                              //facebook button start
+
+
                               const SizedBox(
                                 height: 8,
                               ),
@@ -186,6 +216,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ],
                 ))
+            // bottom section start
           ],
         ),
       ),

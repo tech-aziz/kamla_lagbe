@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../getx_practice/view/increment_view.dart';
+import '../../../res/components/custom_sizedbox.dart';
 import '../../../res/style/color.dart';
 import '../../../res/style/text_style.dart';
 import '../../components/custom_text_widget.dart';
+import '../../services/cleaner/view/cleaner_service_view.dart';
+import '../../services/electric/view/electrict_service_view.dart';
+import '../../services/paddy/view/paddy_service_view.dart';
 import '../../utils/config.dart';
 
 class HomeView extends StatefulWidget {
@@ -57,9 +60,10 @@ class _HomeViewState extends State<HomeView> {
                             horizontal: 12, vertical: 2),
                         child: displayMedium(
                             data: 'Kamla Lagbe',
-                            fontSize: 16,
+                            fontSize: 17,
                             color: Colors.white,
-                            textAlign: TextAlign.center,fontWeight: FontWeight.normal)),
+                            textAlign: TextAlign.center,
+                            fontWeight: FontWeight.normal)),
                   ),
                   accountEmail: displayMedium(
                       data: "azizulhakim.career@gmail.com",
@@ -94,20 +98,10 @@ class _HomeViewState extends State<HomeView> {
                     width: 20,
                     color: Colors.green,
                   ),
-                  // Icon(
-                  //   Icons.home_outlined,
-                  //   color: AppColors.primaryColor,
-                  // ),
                   trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 ),
                 ListTile(
-                  onTap: () {
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //   builder: (context) {
-                    //     return Text('aziz');
-                    //   },
-                    // ));
-                  },
+                  onTap: () {},
                   title: displayMedium(
                       data: 'About App',
                       fontSize: 14,
@@ -119,19 +113,10 @@ class _HomeViewState extends State<HomeView> {
                     width: 20,
                     color: Colors.green,
                   ),
-
-                  // Icon(
-                  //   Icons.info_outline_rounded,
-                  //   color: AppColors.primaryColor,
-                  // ),
                   trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 ),
                 ListTile(
-                  onTap: () {
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //   builder: (context) => PrivacyPolicyView(),
-                    // )
-                  },
+                  onTap: () {},
                   title: displayMedium(
                       data: 'Privacy Policy',
                       fontSize: 14,
@@ -145,11 +130,7 @@ class _HomeViewState extends State<HomeView> {
                   trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 ),
                 ListTile(
-                  onTap: () {
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //   builder: (context) => FeedBackView(),
-                    // ));
-                  },
+                  onTap: () {},
                   title: displayMedium(
                       data: 'Feedback',
                       fontSize: 14,
@@ -161,21 +142,10 @@ class _HomeViewState extends State<HomeView> {
                     width: 20,
                     color: Colors.green,
                   ),
-
-                  // Icon(
-                  //   Icons.feedback_outlined,
-                  //   color: AppColors.primaryColor,
-                  // ),
                   trailing: const Icon(Icons.keyboard_arrow_right_rounded),
                 ),
                 ListTile(
-                  onTap: () {
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //   builder: (context) => const RatingView(),
-                    // ));
-                    // launch(AppUrl.appUrl);
-                    // shareApp(appLink: 'https://play.google.com/store/apps/details?id=com.smartsoftware.snakebite');
-                  },
+                  onTap: () {},
                   title: displayMedium(
                       data: 'Rating',
                       fontSize: 14,
@@ -249,241 +219,285 @@ class _HomeViewState extends State<HomeView> {
             style: GoogleFonts.tiroBangla(
                 color: Colors.white,
                 fontWeight: FontWeight.normal,
-                fontStyle: FontStyle.normal),
+                fontStyle: FontStyle.normal,
+                fontSize: 18),
           ),
           centerTitle: true,
           elevation: 0,
           leading: IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
-            icon: SvgPicture.asset(
-              'assets/icons/drawer_menu.svg',
-              width: 25,
-              color: Colors.white,
+            icon: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SvgPicture.asset(
+                'assets/icons/drawer_menu.svg',
+                // width: 30,
+                height: 27,
+                color: Colors.white,
+              ),
             ),
             onPressed: () => scaffoldKey.currentState?.openDrawer(),
             tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
           )),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //carousel section start
-            CarouselSlider(
-              options: CarouselOptions(
-                  enlargeCenterPage: true,
-                  enableInfiniteScroll: true,
-                  scrollDirection: Axis.horizontal,
-                  autoPlay: true,
-                  reverse: false,
-                  height: 200),
-              items: sliderImageList
-                  .map((e) => ClipRRect(
-                        borderRadius: BorderRadius.circular(
-                            AppConfig.defaultBorderRadius),
-                        child: Image.network(
-                          e,
-                          height: 400,
-                          width: 300,
-                          fit: BoxFit.fill,
-                        ),
-                      ))
-                  .toList(),
-            ),
-            //carousel section start
-            SizedBox(
-              height: 20,
-            ),
-            Text('What services do you need?',
-                style: GoogleFonts.tiroBangla(
-                    color: Colors.black.withOpacity(0.8),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 17,
-                    fontStyle: FontStyle.normal)),
-            SizedBox(
-              height: 20,
-            ),
-
-            Row(
-              children: [
-                Expanded(
-                  child: InkWell(
-                    onTap: () => Get.to(()=> IncrementView()),
-                    child: Container(
-                      height: 100,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.green),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/icons/farmer.png'),
-                          SizedBox(
-                            height: 5,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //carousel section start
+              CarouselSlider(
+                options: CarouselOptions(
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true,
+                    scrollDirection: Axis.horizontal,
+                    autoPlay: true,
+                    reverse: false,
+                    height: 210),
+                items: sliderImageList
+                    .map((e) => ClipRRect(
+                          borderRadius: BorderRadius.circular(
+                              AppConfig.defaultBorderRadius),
+                          child: Image.network(
+                            e,
+                            height: 400,
+                            width: size.width,
+                            fit: BoxFit.fill,
                           ),
-                          Text('Paddy Worker',
+                        ))
+                    .toList(),
+              ),
+              //carousel section start
+
+              CustomSizedbox(
+                height: 25,
+              ),
+              Text('What services do you need?',
+                  style: GoogleFonts.tiroBangla(
+                      color: Colors.black.withOpacity(0.8),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                      fontStyle: FontStyle.normal)),
+              CustomSizedbox(
+                height: 10,
+              ),
+
+              //service section start
+              Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        // got to paddy worker view
+                        Get.to(() => const PaddyServiceView(),
+                            duration: const Duration(milliseconds: 280),
+                            transition: Transition.fadeIn);
+                      },
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.green),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/icons/farmer.png'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Paddy Worker',
+                                style: GoogleFonts.tiroBangla(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    fontStyle: FontStyle.normal))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        // got to electric worker view
+                        Get.to(() => const ElectrictServiceView(),
+                            duration: const Duration(milliseconds: 280),
+                            transition: Transition.fadeIn);
+                      },
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.green),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/icons/electricity.png',
+                              height: 40,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Electric Boy',
+                                style: GoogleFonts.tiroBangla(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    fontStyle: FontStyle.normal))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        // got to Cleaner view
+                        Get.to(() => const CleanerServiceView(),
+                            duration: const Duration(milliseconds: 280),
+                            transition: Transition.fadeIn);
+                      },
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.green),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/icons/cleaner.png',
+                              height: 40,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Cleaner',
                               style: GoogleFonts.tiroBangla(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
-                                  fontStyle: FontStyle.normal))
-                        ],
+                                  fontStyle: FontStyle.normal),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  width: 4,
-                ),
-                Expanded(
-                  child: Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.green),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/icons/electricity.png',
-                          height: 40,
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text('Electric Boy',
-                            style: GoogleFonts.tiroBangla(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                fontStyle: FontStyle.normal))
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 4,
-                ),
-                Expanded(
-                  child: Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.green),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/icons/cleaner.png',
-                          height: 40,
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Cleaner',
-                          style: GoogleFonts.tiroBangla(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              fontStyle: FontStyle.normal),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 200,
-              width: size.width,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                      width: 1, color: Colors.green.withOpacity(0.5))),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('You don\'t have any ongoing order',
-                              style: textStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                  fontStyle: FontStyle.normal)),
-                          Text('Need a service today?',
-                              style: textStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                  fontStyle: FontStyle.normal)),
-                          Container(
-                            width: 110,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: Colors.green),
-                            child: Center(
-                              child: Text('Order now',
-                                  style: textStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FontStyle.normal,
-                                      textStyle: TextStyle(
-                                          fontFamily: 'TiroBangla-Italic'))),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 8),
-                      child: Image.asset('assets/icons/empty.jpg'),
-                    ),
-                  )
                 ],
               ),
-            )
-          ],
+              //service section end
+
+              CustomSizedbox(
+                height: 20,
+              ),
+
+              InkWell(
+                onTap: () {
+                  // order screen will be open
+                },
+                child: Container(
+                  height: 190,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                          width: 1, color: Colors.green.withOpacity(0.5))),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('You don\'t have any ongoing order',
+                                  style: textStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 22,
+                                      fontStyle: FontStyle.normal)),
+                              Text('Need a service today?',
+                                  style: textStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      fontStyle: FontStyle.normal)),
+                              Container(
+                                width: 110,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    color: Colors.green),
+                                child: Center(
+                                  child: Text('Order now',
+                                      style: textStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle: FontStyle.normal,
+                                          textStyle: TextStyle(
+                                              fontFamily:
+                                                  'TiroBangla-Italic'))),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 8),
+                          child: Image.asset('assets/icons/empty.jpg'),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: Container(
+        clipBehavior: Clip.hardEdge,
+        //or better look(and cost) using Clip.antiAlias,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(25),
+            topLeft: Radius.circular(25),
+          ),
+        ),
+        child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          // selectedFontSize: 0,
-          // unselectedFontSize: 0,
-          // showSelectedLabels: false,
-          // showUnselectedLabels: false,
+          backgroundColor: Colors.grey.shade200,
+          // <-- This works for fixed
+          unselectedItemColor: Colors.grey,
           selectedLabelStyle: textStyle(
-              color: AppColors.primaryColor,
-              fontWeight: FontWeight.normal,
-              fontStyle: FontStyle.normal,
-              textStyle: TextStyle(fontFamily: 'TiroBangla-Italic')),
+            color: AppColors.primaryColor,
+            fontWeight: FontWeight.normal,
+            fontStyle: FontStyle.normal,
+            textStyle: TextStyle(fontFamily: 'TiroBangla-Italic'),
+          ),
           unselectedLabelStyle: TextStyle(color: Colors.grey),
           elevation: 0,
           selectedItemColor: Colors.green,
-          // unselectedItemColor: Colors.white.withOpacity(0.5),
-          // currentIndex: navbarController.selectedIndex.toInt(),
           currentIndex: currentIndex,
-          // onTap: navbarController
-          //     .onItemTapped(navbarController.selectedIndex.toInt()),
           onTap: (value) {
             setState(() {
               currentIndex = value;
@@ -491,35 +505,48 @@ class _HomeViewState extends State<HomeView> {
           },
           items: [
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/icons/home.svg',
-                  height: 22, color: Colors.green),
+              icon: SvgPicture.asset(
+                'assets/icons/home.svg',
+                height: 22,
+                color: currentIndex == 0
+                    ? Colors.green
+                    : Colors.grey.withOpacity(0.8),
+              ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/icons/order.svg',
-                height: 24,
-                // ignore: deprecated_member_use
-                color: Colors.green,
+                height: 23,
+                color: currentIndex == 1
+                    ? Colors.green
+                    : Colors.grey.withOpacity(0.8),
               ),
               label: 'Active Orders',
             ),
             BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/icons/support.svg',
-                  height: 26,
-                  color: Colors.green,
-                ),
-                label: 'Support'),
+              icon: SvgPicture.asset(
+                'assets/icons/support.svg',
+                height: 26,
+                color: currentIndex == 2
+                    ? Colors.green
+                    : Colors.grey.withOpacity(0.8),
+              ),
+              label: 'Support',
+            ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/icons/menu.svg',
-                height: 20,
-                color: Colors.green,
+                height: 19,
+                color: currentIndex == 3
+                    ? Colors.green
+                    : Colors.grey.withOpacity(0.8),
               ),
               label: 'Menu',
             ),
-          ]),
+          ],
+        ),
+      ),
     );
   }
 }

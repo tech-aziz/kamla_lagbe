@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../components/custom_textfield.dart';
 import '../../home/view/home_view.dart';
@@ -82,7 +81,9 @@ class _VerificationViewState extends State<VerificationView> {
         ),
         onPressed: () {
           if (numberController.text.length == 11) {
-            Get.offAll(() => HomeView());
+            Get.offAll(() => HomeView(),
+                duration: const Duration(milliseconds: 280),
+                transition: Transition.fadeIn);
             numberController.clear();
           } else {
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

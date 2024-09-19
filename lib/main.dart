@@ -2,18 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:kamla_lagbe/app/getx_practice/view/increment_another_view.dart';
-import 'package:kamla_lagbe/app/getx_practice/view/increment_view.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'app/getx_practice/api_practice.dart';
-import 'app/getx_practice/controller/increment_controller.dart';
-import 'app/getx_practice/test_app/category_screen.dart';
 import 'app/modules/splash/splash_view.dart';
 
+
 void main() async {
-  IncrementController incrementController = Get.put(IncrementController());
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: FirebaseOptions(
@@ -44,20 +38,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
+        defaultTransition: Transition.rightToLeft, // Default transition for all routes
+        transitionDuration: const Duration(milliseconds: 280),
         title: 'কামলা লাগবে',
-        initialRoute: '/',
-        getPages: [
-          GetPage(name: '/', page:()=> IncrementView()),
-          GetPage(name: '/increment_another', page:()=> IncrementAnotherView()),
-        ],
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        // home: const SplashView()
-      // home: const ApiPractice(),
-      home: CategoriesScreen(),
-
+        home: const SplashView()
     );
   }
 }
