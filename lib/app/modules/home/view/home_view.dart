@@ -404,40 +404,40 @@ class _HomeViewState extends State<HomeView> {
                 height: 20,
               ),
 
-              InkWell(
-                onTap: () {
-                  // order screen will be open
-                },
-                child: Container(
-                  height: 190,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                          width: 1, color: Colors.green.withOpacity(0.5))),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('You don\'t have any ongoing order',
-                                  style: textStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 22,
-                                      fontStyle: FontStyle.normal)),
-                              Text('Need a service today?',
-                                  style: textStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      fontStyle: FontStyle.normal)),
-                              Container(
+              Container(
+                height: 190,
+                width: size.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                        width: 1, color: Colors.green.withOpacity(0.5))),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('You don\'t have any ongoing order',
+                                style: textStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22,
+                                    fontStyle: FontStyle.normal)),
+                            Text('Need a service today?',
+                                style: textStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                    fontStyle: FontStyle.normal)),
+                            InkWell(
+                              onTap: () => Get.to(() => PaddyServiceView(),
+                                  duration: const Duration(milliseconds: 280),
+                                  transition: Transition.fadeIn),
+                              child: Container(
                                 width: 110,
                                 alignment: Alignment.center,
                                 padding: EdgeInsets.all(10),
@@ -454,20 +454,20 @@ class _HomeViewState extends State<HomeView> {
                                               fontFamily:
                                                   'TiroBangla-Italic'))),
                                 ),
-                              )
-                            ],
-                          ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 8),
-                          child: Image.asset('assets/icons/empty.jpg'),
-                        ),
-                      )
-                    ],
-                  ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 8),
+                        child: Image.asset('assets/icons/empty.jpg'),
+                      ),
+                    )
+                  ],
                 ),
               )
             ],
